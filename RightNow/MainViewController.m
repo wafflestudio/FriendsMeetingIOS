@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     // Initiate
-    button_size = 15;
+    button_size = 20;
     width_std = 4007.73;
     height_std = 3732.199;
     scale = 4;
@@ -77,17 +77,19 @@
     }
     
     // Init Bottom View
-    UIColor * normal = [UIColor whiteColor];
-    UIColor * selected = [UIColor lightGrayColor];
+    [button1 setImage:[UIImage imageNamed:@"page1_bottom_btn1"] forState:UIControlStateNormal];
+    [button2 setImage:[UIImage imageNamed:@"page1_bottom_btn2"] forState:UIControlStateNormal];
+    [button3 setImage:[UIImage imageNamed:@"page1_bottom_btn3"] forState:UIControlStateNormal];
+    [result setImage:[UIImage imageNamed:@"page1_bottom_btn4"] forState:UIControlStateNormal];
     
-    [button1 setBackgroundImage:[UIImage image1x1WithColor:normal] forState:UIControlStateNormal];
-    [button2 setBackgroundImage:[UIImage image1x1WithColor:normal] forState:UIControlStateNormal];
-    [button3 setBackgroundImage:[UIImage image1x1WithColor:normal] forState:UIControlStateNormal];
-    [result setBackgroundImage:[UIImage image1x1WithColor:normal] forState:UIControlStateNormal];
-    
-    [button1 setBackgroundImage:[UIImage image1x1WithColor:selected] forState:UIControlStateSelected];
-    [button2 setBackgroundImage:[UIImage image1x1WithColor:selected] forState:UIControlStateSelected];
-    [button3 setBackgroundImage:[UIImage image1x1WithColor:selected] forState:UIControlStateSelected];
+    [button1 setImage:[UIImage imageNamed:@"page1_bottom_btn1_click"]
+                       forState:UIControlStateSelected];
+    [button2 setImage:[UIImage imageNamed:@"page1_bottom_btn2_click"]
+                       forState:UIControlStateSelected];
+    [button3 setImage:[UIImage imageNamed:@"page1_bottom_btn3_click"]
+                       forState:UIControlStateSelected];
+    [result setImage:[UIImage imageNamed:@"page1_bottom_btn4_click"]
+                      forState:UIControlStateHighlighted];
     
     [button1 addTarget:self action:@selector(popularityButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [button2 addTarget:self action:@selector(popularityButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -123,6 +125,45 @@
 
 - (void)subwayButtonClicked:(UIButton *)sender{
     NSLog(@"button Clicked %@", [subwayDic objectForKey:[NSNumber numberWithInteger:sender.tag]]);
+    
+    // Remove original subwayClickedImageView
+    UIView * subwayImageView = [[scrollView subviews] objectAtIndex:0];
+    for (UIImageView * view in [subwayImageView subviews]){
+        if(view.tag == 119){
+            [view removeFromSuperview];
+        }
+    }
+    
+    // Set subwayClickedImageView
+    CGPoint center = CGPointMake(sender.frame.origin.x + sender.frame.size.width/2, sender.frame.origin.y + sender.frame.size.height/2);
+    CGSize imageSize = CGSizeMake(131, 53);
+    
+    // Resize with scrollView.zoomScale
+    CGRect rect = CGRectMake(center.x*scrollView.zoomScale- imageSize.width/2 + 1, center.y*scrollView.zoomScale - imageSize.height , imageSize.width, imageSize.height);
+    
+    // Init Images
+    UIImageView * bgImageView = [[UIImageView alloc] initWithFrame:rect];
+    bgImageView.image = [UIImage imageNamed:@"page1_button_bg"];
+    
+    UIImageView * leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 43, 53)];
+    UIImageView * rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 40, 53)];
+    leftImageView.image = [UIImage imageNamed:@"page1_button_left_click"];
+    rightImageView.image = [UIImage imageNamed:@"page1_button_right_click"];
+    
+    UILabel * number = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width/2-rect.size.width/(3.25*2), rect.size.height/2-rect.size.height/2, 40, 40)];
+    [number setFont:[UIFont fontWithName:@"BMJUAOTF" size:20]];
+    [number setText:@"0명"];
+    [number setTextColor:[UIColor whiteColor]];
+    [number setTextAlignment:NSTextAlignmentCenter];
+    
+    [bgImageView addSubview:leftImageView];
+    [bgImageView addSubview:rightImageView];
+    [bgImageView addSubview:number];
+    
+    bgImageView.tag = 119;
+    
+    
+    [scrollView addSubview:bgImageView];
 }
 - (void)popularityButtonClicked:(UIButton *)sender{
     NSLog(@"pop Button Clicked %d", (int)sender.tag);
@@ -147,9 +188,21 @@
     [selectedSubway setObject:[NSArray arrayWithObjects:subway_id, [subwayDic objectForKey:subway_id], count, nil] forKey:subway_id];
 }
 
+- (CGRect)resizeRect:(CGRect)rect scale:(CGFloat)_scale{
+    return CGRectMake(rect.origin.x*_scale, rect.origin.y*_scale, rect.size.width*_scale, rect.size.height*_scale);
+}
+
 // ScrollView Delegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)_scrollView{
-    return [[_scrollView subviews] objectAtIndex:0];
+    
+    // Remove original subwayClickedImageView
+    for (UIImageView * view in [_scrollView subviews]){
+        if(view.tag == 119){
+            [view removeFromSuperview];
+        }
+    }
+    UIView * subwayImageView = [[scrollView subviews] objectAtIndex:0];
+    return subwayImageView;
 }
 
 - (void)didReceiveMemoryWarning {
