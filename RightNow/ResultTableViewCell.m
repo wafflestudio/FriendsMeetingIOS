@@ -12,6 +12,8 @@
 @synthesize subwayName, desc, access, line;
 
 - (void)awakeFromNib {
+    [subwayName setFont:[UIFont fontWithName:@"BMJUAOTF" size:30]];
+    [desc setFont:[UIFont fontWithName:@"BMJUAOTF" size:13]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

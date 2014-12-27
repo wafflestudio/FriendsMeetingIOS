@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
+
+}
 
 @property (nonatomic, strong) IBOutlet UITableView * resultTableView;
 

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "ResultViewController.h"
 #import "UIImage+IMAGECategories.h"
 
 @interface MainViewController (){
@@ -123,12 +124,13 @@
     return button;
 }
 
+
+// Subway Button Clicked
 - (void)subwayButtonClicked:(UIButton *)sender{
     NSLog(@"button Clicked %@", [subwayDic objectForKey:[NSNumber numberWithInteger:sender.tag]]);
     
     // Remove original subwayClickedImageView
-    UIView * subwayImageView = [[scrollView subviews] objectAtIndex:0];
-    for (UIImageView * view in [subwayImageView subviews]){
+    for (UIImageView * view in [scrollView subviews]){
         if(view.tag == 119){
             [view removeFromSuperview];
         }
@@ -144,40 +146,93 @@
     // Init Images
     UIImageView * bgImageView = [[UIImageView alloc] initWithFrame:rect];
     bgImageView.image = [UIImage imageNamed:@"page1_button_bg"];
+    bgImageView.userInteractionEnabled = YES;
     
-    UIImageView * leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 43, 53)];
-    UIImageView * rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(90, 0, 40, 53)];
-    leftImageView.image = [UIImage imageNamed:@"page1_button_left_click"];
-    rightImageView.image = [UIImage imageNamed:@"page1_button_right_click"];
+    // Init minus, plus button
+    UIButton * minusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    minusButton.frame = CGRectMake(0, 0, 43, 53);
+    UIButton * plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    plusButton.frame = CGRectMake(90, 0, 40, 53);
+    
+    [minusButton setImage:[UIImage imageNamed:@"page1_button_left"] forState:UIControlStateNormal];
+    [minusButton setImage:[UIImage imageNamed:@"page1_button_left_click"] forState:UIControlStateHighlighted];
+    [plusButton setImage:[UIImage imageNamed:@"page1_button_right"] forState:UIControlStateNormal];
+    [plusButton setImage:[UIImage imageNamed:@"page1_button_right_click"] forState:UIControlStateHighlighted];
+    
+    minusButton.tag = sender.tag;
+    plusButton.tag = sender.tag;
+    
+    minusButton.userInteractionEnabled = YES;
+    plusButton.userInteractionEnabled = YES;
+    
+    [minusButton addTarget:self action:@selector(minusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [plusButton addTarget:self action:@selector(plusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UILabel * number = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width/2-rect.size.width/(3.25*2), rect.size.height/2-rect.size.height/2, 40, 40)];
     [number setFont:[UIFont fontWithName:@"BMJUAOTF" size:20]];
-    [number setText:@"0명"];
+    
+    
+    NSNumber * subway_id = [NSNumber numberWithInteger:sender.tag];
+    NSArray * array = [selectedSubway objectForKey:subway_id];
+    NSNumber * count = [array objectAtIndex:2];
+    [number setText:[NSString stringWithFormat:@"%d명",[count intValue]]];
     [number setTextColor:[UIColor whiteColor]];
     [number setTextAlignment:NSTextAlignmentCenter];
+    number.tag = 111;
     
-    [bgImageView addSubview:leftImageView];
-    [bgImageView addSubview:rightImageView];
+    [bgImageView addSubview:minusButton];
+    [bgImageView addSubview:plusButton
+     ];
     [bgImageView addSubview:number];
     
     bgImageView.tag = 119;
     
-    
     [scrollView addSubview:bgImageView];
 }
-- (void)popularityButtonClicked:(UIButton *)sender{
-    NSLog(@"pop Button Clicked %d", (int)sender.tag);
-    if(sender.selected) return;
+
+- (void)minusButtonClicked:(UIButton *)sender{
     
-    button1.selected = NO;
-    button2.selected = NO;
-    button3.selected = NO;
+    NSLog(@"minus Button Clicked");
+    NSNumber * subway_id = [NSNumber numberWithInteger:sender.tag];
+    NSArray * array = [selectedSubway objectForKey:subway_id];
+    if(array == nil) return;
     
-    sender.selected = YES;
+    NSNumber * count = [array objectAtIndex:2];
+    if([count intValue] <= 0) return;
+    [self updateSelectedSubways:(int)sender.tag number:[count intValue]-1];
+    
+    // update view
+    for (UIImageView * view in [scrollView subviews]){
+        if(view.tag == 119){
+            for(UILabel * label in [view subviews]){
+                if(label.tag == 111){
+                    [label setText:[NSString stringWithFormat:@"%d명", [count intValue]-1]];
+                }
+            }
+        }
+    }
+    
 }
-- (void)resultButtonClicked:(UIButton *) sender{
-    [self performSegueWithIdentifier:@"Result" sender:self];
+- (void)plusButtonClicked:(UIButton *)sender{
+    NSLog(@"plus Button Clicked");
+    NSNumber * subway_id = [NSNumber numberWithInteger:sender.tag];
+    NSArray * array = [selectedSubway objectForKey:subway_id];
+    NSNumber * count = [array objectAtIndex:2];
+    [self updateSelectedSubways:(int)sender.tag number:[count intValue]+1];
+    
+    // update view
+    for (UIImageView * view in [scrollView subviews]){
+        if(view.tag == 119){
+            for(UILabel * label in [view subviews]){
+                if(label.tag == 111){
+                    [label setText:[NSString stringWithFormat:@"%d명", [count intValue]+1]];
+                }
+            }
+        }
+    }
 }
+
 - (void)updateSelectedSubways:(int)_subway_id number:(int)_count{
     NSNumber * subway_id = [NSNumber numberWithInt:_subway_id];
     NSNumber * count = [NSNumber numberWithInt:_count];
@@ -188,13 +243,39 @@
     [selectedSubway setObject:[NSArray arrayWithObjects:subway_id, [subwayDic objectForKey:subway_id], count, nil] forKey:subway_id];
 }
 
+
+// Popularity Button Clicked
+- (void)popularityButtonClicked:(UIButton *)sender{
+    NSLog(@"pop Button Clicked %d", (int)sender.tag);
+    if(sender.selected) return;
+    
+    button1.selected = NO;
+    button2.selected = NO;
+    button3.selected = NO;
+    
+    sender.selected = YES;
+}
+
+// Result Button Clicked
+- (void)resultButtonClicked:(UIButton *) sender{
+    [self performSegueWithIdentifier:@"Result" sender:self];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"Result"])
+    {
+//        ResultViewController *vc = [segue destinationViewController];
+        
+        // Send data
+    }
+}
+
 - (CGRect)resizeRect:(CGRect)rect scale:(CGFloat)_scale{
     return CGRectMake(rect.origin.x*_scale, rect.origin.y*_scale, rect.size.width*_scale, rect.size.height*_scale);
 }
 
 // ScrollView Delegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)_scrollView{
-    
     // Remove original subwayClickedImageView
     for (UIImageView * view in [_scrollView subviews]){
         if(view.tag == 119){
@@ -204,6 +285,15 @@
     UIView * subwayImageView = [[scrollView subviews] objectAtIndex:0];
     return subwayImageView;
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)_scrollView{
+    // Remove original subwayClickedImageView
+    for (UIImageView * view in [_scrollView subviews]){
+        if(view.tag == 119){
+            [view removeFromSuperview];
+        }
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
