@@ -13,13 +13,17 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kQy-J0-G4j" id="tQ8-JS-w2l">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iHW-TY-2mZ">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHW-TY-2mZ">
                         <rect key="frame" x="0.0" y="5" width="288" height="73"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-L7-nOj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-L7-nOj">
                                 <rect key="frame" x="8" y="8" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="44l-RW-X8y"/>
+                                    <constraint firstAttribute="height" constant="45" id="Uk6-Oj-I7I"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="EBe-pJ-k21">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EBe-pJ-k21">
                                 <rect key="frame" x="59" y="13" width="189" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="강남역">
@@ -32,32 +36,48 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="가장 오래걸리는 사람의 이동시간이 최소가 되는 장소" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="emF-Zb-Svd">
-                                <rect key="frame" x="0.0" y="53" width="291" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가장 오래걸리는 사람의 이동시간이 최소가 되는 장소" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emF-Zb-Svd">
+                                <rect key="frame" x="0.0" y="55" width="271" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zp8-Fb-XBU">
-                                <rect key="frame" x="256" y="8" width="24" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zp8-Fb-XBU">
+                                <rect key="frame" x="256" y="8" width="24" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Bkk-re-K8M"/>
+                                    <constraint firstAttribute="width" constant="24" id="YS2-yg-4EI"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zp8-Fb-XBU" firstAttribute="top" secondItem="iHW-TY-2mZ" secondAttribute="top" constant="8" id="0xS-Vj-lK0"/>
                             <constraint firstItem="zp8-Fb-XBU" firstAttribute="leading" secondItem="EBe-pJ-k21" secondAttribute="trailing" constant="8" id="1jg-7k-qO9"/>
                             <constraint firstItem="bzR-L7-nOj" firstAttribute="leading" secondItem="iHW-TY-2mZ" secondAttribute="leading" constant="8" id="38S-rB-gab"/>
                             <constraint firstAttribute="trailing" secondItem="zp8-Fb-XBU" secondAttribute="trailing" constant="8" id="6KY-zb-6T8"/>
-                            <constraint firstItem="EBe-pJ-k21" firstAttribute="centerY" secondItem="zp8-Fb-XBU" secondAttribute="centerY" constant="-2.5" id="FX4-Pb-Vcf"/>
+                            <constraint firstItem="emF-Zb-Svd" firstAttribute="top" secondItem="bzR-L7-nOj" secondAttribute="bottom" constant="2" id="C8V-oJ-Nxh"/>
+                            <constraint firstItem="EBe-pJ-k21" firstAttribute="centerY" secondItem="zp8-Fb-XBU" secondAttribute="centerY" id="FX4-Pb-Vcf"/>
+                            <constraint firstItem="emF-Zb-Svd" firstAttribute="top" secondItem="iHW-TY-2mZ" secondAttribute="top" constant="53" id="MTj-Bx-VAp"/>
+                            <constraint firstItem="bzR-L7-nOj" firstAttribute="top" secondItem="iHW-TY-2mZ" secondAttribute="top" constant="8" id="RE4-BB-VOM"/>
+                            <constraint firstItem="EBe-pJ-k21" firstAttribute="top" secondItem="iHW-TY-2mZ" secondAttribute="top" constant="13" id="eOK-my-V2n"/>
                             <constraint firstItem="emF-Zb-Svd" firstAttribute="leading" secondItem="iHW-TY-2mZ" secondAttribute="leading" id="fr8-HB-d8P"/>
                             <constraint firstItem="EBe-pJ-k21" firstAttribute="centerY" secondItem="bzR-L7-nOj" secondAttribute="centerY" id="hNx-2r-uQm"/>
                             <constraint firstItem="EBe-pJ-k21" firstAttribute="leading" secondItem="bzR-L7-nOj" secondAttribute="trailing" constant="6" id="vIp-ak-J2f"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="MTj-Bx-VAp"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="iHW-TY-2mZ" secondAttribute="trailing" constant="-8" id="3xh-gf-9Gy"/>
+                    <constraint firstItem="iHW-TY-2mZ" firstAttribute="top" secondItem="tQ8-JS-w2l" secondAttribute="topMargin" constant="-3" id="EYc-rU-umR"/>
                     <constraint firstItem="iHW-TY-2mZ" firstAttribute="leading" secondItem="tQ8-JS-w2l" secondAttribute="leadingMargin" constant="-8" id="KAv-z1-919"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="iHW-TY-2mZ" secondAttribute="bottom" constant="-7" id="N5r-uA-OIO"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="tintColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>

@@ -14,8 +14,10 @@
 		493745131A4810AD0082E968 /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493745121A4810AD0082E968 /* ResultTableViewCell.m */; };
 		494EB4211A47FF7F00535999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5C34C3819CD3CB0004E00E9 /* Main.storyboard */; };
 		494EB4221A47FF8E00535999 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5C34C3D19CD3CB0004E00E9 /* LaunchScreen.xib */; };
+		499BDC961A4E5F5200F0736B /* BM-JUA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC951A4E5F5200F0736B /* BM-JUA.otf */; };
 		49B2D4671A47FF6000ACF23F /* subway_corrd.csv in Resources */ = {isa = PBXBuildFile; fileRef = 49B2D4481A47FECF00ACF23F /* subway_corrd.csv */; };
 		49B2D4681A47FF6000ACF23F /* Subway.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B2D4491A47FECF00ACF23F /* Subway.png */; };
+		49CAFC661A4962D700FCB3FD /* image1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 49CAFC651A4962D700FCB3FD /* image1.jpeg */; };
 		F5C34C3119CD3CB0004E00E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C34C3019CD3CB0004E00E9 /* main.m */; };
 		F5C34C3419CD3CB0004E00E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C34C3319CD3CB0004E00E9 /* AppDelegate.m */; };
 		F5C34C3719CD3CB0004E00E9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C34C3619CD3CB0004E00E9 /* MainViewController.m */; };
@@ -42,8 +44,10 @@
 		4937450F1A4808560082E968 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		493745111A4810AD0082E968 /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
 		493745121A4810AD0082E968 /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewCell.m; sourceTree = "<group>"; };
+		499BDC951A4E5F5200F0736B /* BM-JUA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BM-JUA.otf"; path = "Resource/Font/BM-JUA.otf"; sourceTree = "<group>"; };
 		49B2D4481A47FECF00ACF23F /* subway_corrd.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = subway_corrd.csv; path = Resource/subway_corrd.csv; sourceTree = "<group>"; };
 		49B2D4491A47FECF00ACF23F /* Subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Subway.png; path = Resource/Subway.png; sourceTree = "<group>"; };
+		49CAFC651A4962D700FCB3FD /* image1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpeg; path = Resource/image1.jpeg; sourceTree = "<group>"; };
 		F5C34C2B19CD3CB0004E00E9 /* RightNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C34C2F19CD3CB0004E00E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5C34C3019CD3CB0004E00E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,9 +92,19 @@
 			name = CustomCategories;
 			sourceTree = "<group>";
 		};
+		499BDC921A4E5F0F00F0736B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				499BDC951A4E5F5200F0736B /* BM-JUA.otf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		49B2D4511A47FEE100ACF23F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				499BDC921A4E5F0F00F0736B /* Font */,
+				49CAFC651A4962D700FCB3FD /* image1.jpeg */,
 				49B2D4481A47FECF00ACF23F /* subway_corrd.csv */,
 				49B2D4491A47FECF00ACF23F /* Subway.png */,
 			);
@@ -246,9 +260,11 @@
 			files = (
 				493745101A4808560082E968 /* ResultTableViewCell.xib in Resources */,
 				494EB4221A47FF8E00535999 /* LaunchScreen.xib in Resources */,
+				499BDC961A4E5F5200F0736B /* BM-JUA.otf in Resources */,
 				494EB4211A47FF7F00535999 /* Main.storyboard in Resources */,
 				49B2D4671A47FF6000ACF23F /* subway_corrd.csv in Resources */,
 				49B2D4681A47FF6000ACF23F /* Subway.png in Resources */,
+				49CAFC661A4962D700FCB3FD /* image1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

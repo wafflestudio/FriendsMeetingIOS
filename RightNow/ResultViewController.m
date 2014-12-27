@@ -89,7 +89,10 @@
     }else if(indexPath.row == 3){
         cell.subwayName.text = @"구로디지털단지역";
         cell.desc.text = @"영화관이 가까운 장소";
-    }else{}
+    }else{
+        cell.subwayName.text = @"신촌역";
+        cell.desc.text = @"데이트하기 좋은 장소";
+    }
     return cell;
 }
 

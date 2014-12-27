@@ -144,7 +144,7 @@
     if([selectedSubway objectForKey:subway_id]){
         [selectedSubway removeObjectForKey:subway_id];
     }
-    [selectedSubway setObject:[NSArray arrayWithObjects:subway_id, count, nil] forKey:subway_id];
+    [selectedSubway setObject:[NSArray arrayWithObjects:subway_id, [subwayDic objectForKey:subway_id], count, nil] forKey:subway_id];
 }
 
 // ScrollView Delegate

@@ -22,7 +22,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0h-8I-lBN">
                                         <rect key="frame" x="8" y="18" width="96" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="변화없음 ">
+                                        <state key="normal" title="좋다">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -30,7 +30,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg2-AU-HjC">
                                         <rect key="frame" x="113" y="18" width="95" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="약간번화">
+                                        <state key="normal" title="싫다">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -46,11 +46,17 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vj-iP-MLT">
                                         <rect key="frame" x="216" y="18" width="96" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="아주번화">
+                                        <state key="normal" title="상관없다">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나는 사람 많은 곳이" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pex-Dd-aQt">
+                                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.27450980392156865" green="0.65490196078431373" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -129,17 +135,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-YC-qkq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-YC-qkq">
                                 <rect key="frame" x="16" y="81" width="288" height="425"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="425" id="3Uc-9H-0DG"/>
                                     <constraint firstAttribute="width" constant="288" id="b4U-RI-4NK"/>
+                                    <constraint firstAttribute="height" constant="425" id="vkU-Gx-IVZ"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" id="cZ9-xX-pyX">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="cZ9-xX-pyX">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cZ9-xX-pyX" id="QDZ-E0-7Cv">
@@ -180,7 +186,7 @@
                                     <constraint firstItem="xh3-4T-CpU" firstAttribute="leading" secondItem="8U8-O6-zWf" secondAttribute="leading" id="16n-vp-r4B"/>
                                     <constraint firstItem="5Ak-DI-iv5" firstAttribute="leading" secondItem="xh3-4T-CpU" secondAttribute="trailing" constant="13" id="2RI-LT-OSF"/>
                                     <constraint firstItem="5Ak-DI-iv5" firstAttribute="width" secondItem="Q4t-Gb-nX2" secondAttribute="width" id="52R-KY-HYb"/>
-                                    <constraint firstItem="5Ak-DI-iv5" firstAttribute="top" secondItem="8U8-O6-zWf" secondAttribute="top" constant="7" id="6Tg-Uf-dm2"/>
+                                    <constraint firstItem="5Ak-DI-iv5" firstAttribute="top" secondItem="8U8-O6-zWf" secondAttribute="top" constant="8" id="6Tg-Uf-dm2"/>
                                     <constraint firstItem="Q4t-Gb-nX2" firstAttribute="top" secondItem="5Ak-DI-iv5" secondAttribute="top" id="FbM-rG-Kzv"/>
                                     <constraint firstItem="5Ak-DI-iv5" firstAttribute="height" secondItem="xh3-4T-CpU" secondAttribute="height" id="ILD-9z-dhD"/>
                                     <constraint firstItem="xh3-4T-CpU" firstAttribute="top" secondItem="8U8-O6-zWf" secondAttribute="top" constant="8" id="Jna-Jf-Fsc"/>
