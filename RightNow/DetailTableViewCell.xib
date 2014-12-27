@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="85" id="WAV-06-SbM" customClass="DetailTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAV-06-SbM" id="WWC-P1-cm1">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-R0-g6p">
+                        <rect key="frame" x="0.0" y="14" width="288" height="73"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="55" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYP-yh-kRW">
+                                <rect key="frame" x="11" y="4" width="51" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="분" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beN-ss-KEj">
+                                <rect key="frame" x="56" y="18" width="26" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잠실역" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uW9-MQ-VlR">
+                                <rect key="frame" x="118" y="22" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="강남역" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ha7-9e-f84">
+                                <rect key="frame" x="223" y="22" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ue-NV-mwe">
+                                <rect key="frame" x="164" y="15" width="25" height="36"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yj-fV-ZqG">
+                                <rect key="frame" x="86" y="21" width="27" height="23"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxA-Ii-g3e">
+                                <rect key="frame" x="195" y="21" width="27" height="23"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="hrX-R0-g6p" firstAttribute="leading" secondItem="WWC-P1-cm1" secondAttribute="leading" id="tId-iN-DxT"/>
+                    <constraint firstAttribute="trailing" secondItem="hrX-R0-g6p" secondAttribute="trailing" id="xYk-0P-bJH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="tintColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="arrivalLine" destination="HxA-Ii-g3e" id="H8P-bn-khu"/>
+                <outlet property="arrivalStation" destination="ha7-9e-f84" id="6jR-Dt-mXs"/>
+                <outlet property="departureLine" destination="0Yj-fV-ZqG" id="4SL-Ww-AQQ"/>
+                <outlet property="departureStation" destination="uW9-MQ-VlR" id="1pC-wV-EJf"/>
+                <outlet property="time" destination="vYP-yh-kRW" id="KJj-V8-sK7"/>
+            </connections>
+            <point key="canvasLocation" x="267" y="191"/>
+        </tableViewCell>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Vs-HM-VrA">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="23"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="248" y="209.5"/>
+        </label>
+    </objects>
+</document>

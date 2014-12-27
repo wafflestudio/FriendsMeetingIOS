@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140D0C6C1A494D1700B1F4D1 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 140D0C6B1A494D1700B1F4D1 /* DetailTableViewCell.m */; };
+		140D0C6F1A494D5900B1F4D1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140D0C6E1A494D5900B1F4D1 /* DetailViewController.m */; };
+		140D0C731A494F8E00B1F4D1 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140D0C721A494F8E00B1F4D1 /* DetailTableViewCell.xib */; };
 		4937450A1A4803BB0082E968 /* UIColor+COLORCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 493745071A4803BB0082E968 /* UIColor+COLORCategories.m */; };
 		4937450B1A4803BB0082E968 /* UIImage+IMAGECategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 493745091A4803BB0082E968 /* UIImage+IMAGECategories.m */; };
 		4937450E1A4807A70082E968 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4937450D1A4807A70082E968 /* ResultViewController.m */; };
@@ -33,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140D0C6A1A494D1700B1F4D1 /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
+		140D0C6B1A494D1700B1F4D1 /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
+		140D0C6D1A494D5900B1F4D1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		140D0C6E1A494D5900B1F4D1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		140D0C721A494F8E00B1F4D1 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		493745061A4803BB0082E968 /* UIColor+COLORCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+COLORCategories.h"; sourceTree = "<group>"; };
 		493745071A4803BB0082E968 /* UIColor+COLORCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+COLORCategories.m"; sourceTree = "<group>"; };
 		493745081A4803BB0082E968 /* UIImage+IMAGECategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IMAGECategories.h"; sourceTree = "<group>"; };
@@ -122,10 +130,15 @@
 				49B2D4511A47FEE100ACF23F /* Resource */,
 				F5C34C3219CD3CB0004E00E9 /* AppDelegate.h */,
 				F5C34C3319CD3CB0004E00E9 /* AppDelegate.m */,
+				140D0C6A1A494D1700B1F4D1 /* DetailTableViewCell.h */,
+				140D0C6B1A494D1700B1F4D1 /* DetailTableViewCell.m */,
+				140D0C721A494F8E00B1F4D1 /* DetailTableViewCell.xib */,
 				F5C34C3519CD3CB0004E00E9 /* MainViewController.h */,
 				F5C34C3619CD3CB0004E00E9 /* MainViewController.m */,
 				4937450C1A4807A70082E968 /* ResultViewController.h */,
 				4937450D1A4807A70082E968 /* ResultViewController.m */,
+				140D0C6D1A494D5900B1F4D1 /* DetailViewController.h */,
+				140D0C6E1A494D5900B1F4D1 /* DetailViewController.m */,
 				493745111A4810AD0082E968 /* ResultTableViewCell.h */,
 				493745121A4810AD0082E968 /* ResultTableViewCell.m */,
 				4937450F1A4808560082E968 /* ResultTableViewCell.xib */,
@@ -248,6 +261,7 @@
 				494EB4221A47FF8E00535999 /* LaunchScreen.xib in Resources */,
 				494EB4211A47FF7F00535999 /* Main.storyboard in Resources */,
 				49B2D4671A47FF6000ACF23F /* subway_corrd.csv in Resources */,
+				140D0C731A494F8E00B1F4D1 /* DetailTableViewCell.xib in Resources */,
 				49B2D4681A47FF6000ACF23F /* Subway.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,9 +282,11 @@
 			files = (
 				4937450B1A4803BB0082E968 /* UIImage+IMAGECategories.m in Sources */,
 				F5C34C3719CD3CB0004E00E9 /* MainViewController.m in Sources */,
+				140D0C6F1A494D5900B1F4D1 /* DetailViewController.m in Sources */,
 				4937450A1A4803BB0082E968 /* UIColor+COLORCategories.m in Sources */,
 				F5C34C3419CD3CB0004E00E9 /* AppDelegate.m in Sources */,
 				F5C34C3119CD3CB0004E00E9 /* main.m in Sources */,
+				140D0C6C1A494D1700B1F4D1 /* DetailTableViewCell.m in Sources */,
 				493745131A4810AD0082E968 /* ResultTableViewCell.m in Sources */,
 				4937450E1A4807A70082E968 /* ResultViewController.m in Sources */,
 			);
