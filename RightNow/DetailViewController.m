@@ -23,6 +23,7 @@
     // init DetailTableView
     detailTableView.delegate = self;
     detailTableView.dataSource = self;
+    [detailTableView setBackgroundColor:[UIColor clearColor]];
     }
 
 - (void)didReceiveMemoryWarning {

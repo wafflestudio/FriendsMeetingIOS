@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -9,10 +10,10 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="85" id="WAV-06-SbM" customClass="DetailTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="288" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAV-06-SbM" id="WWC-P1-cm1">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WAV-06-SbM" id="WWC-P1-cm1">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-R0-g6p">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrX-R0-g6p">
                         <rect key="frame" x="0.0" y="14" width="288" height="73"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="55" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYP-yh-kRW">
@@ -53,11 +54,26 @@
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
-                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="hrX-R0-g6p" firstAttribute="top" secondItem="WWC-P1-cm1" secondAttribute="top" constant="14" id="5bF-xE-bFO"/>
+                    <constraint firstItem="hrX-R0-g6p" firstAttribute="top" secondItem="WWC-P1-cm1" secondAttribute="top" constant="14" id="85u-cv-ufx"/>
+                    <constraint firstAttribute="centerX" secondItem="hrX-R0-g6p" secondAttribute="centerX" id="9s5-Cs-fNZ"/>
+                    <constraint firstItem="hrX-R0-g6p" firstAttribute="leading" secondItem="WWC-P1-cm1" secondAttribute="leadingMargin" constant="-8" id="I2m-Ek-wJc"/>
+                    <constraint firstAttribute="bottom" secondItem="hrX-R0-g6p" secondAttribute="bottom" constant="-8" id="SH4-2N-q07"/>
+                    <constraint firstItem="hrX-R0-g6p" firstAttribute="top" secondItem="WWC-P1-cm1" secondAttribute="topMargin" constant="6" id="dbh-6t-8b8"/>
+                    <constraint firstItem="hrX-R0-g6p" firstAttribute="leading" secondItem="WWC-P1-cm1" secondAttribute="leading" id="q8z-qh-OFH"/>
                     <constraint firstItem="hrX-R0-g6p" firstAttribute="leading" secondItem="WWC-P1-cm1" secondAttribute="leading" id="tId-iN-DxT"/>
                     <constraint firstAttribute="trailing" secondItem="hrX-R0-g6p" secondAttribute="trailing" id="xYk-0P-bJH"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="85u-cv-ufx"/>
+                        <exclude reference="I2m-Ek-wJc"/>
+                        <exclude reference="dbh-6t-8b8"/>
+                        <exclude reference="tId-iN-DxT"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="tintColor" red="0.27450980390000002" green="0.65490196079999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
@@ -69,13 +85,5 @@
             </connections>
             <point key="canvasLocation" x="267" y="191"/>
         </tableViewCell>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Vs-HM-VrA">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="23"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="248" y="209.5"/>
-        </label>
     </objects>
 </document>
