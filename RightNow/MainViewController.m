@@ -59,9 +59,14 @@
                                                     error:NULL];
     NSArray * lines = [data componentsSeparatedByString:@"\n"];
     
+//    NSMutableSet * set = [[NSMutableSet alloc] init];
+    
     for(NSString *line in lines){
         NSArray * field = [line componentsSeparatedByString:@","];
         NSString * name = [field objectAtIndex:0];
+        
+//        [set addObject:name];
+        
         int x = [[field objectAtIndex:1] intValue];
         int y = [[field objectAtIndex:2] intValue];
         
@@ -76,6 +81,34 @@
         // Add Button
         [self addButtonWithID:subwayImageView x:x y:y ID:ID];
     }
+    
+    /*
+    path = [[NSBundle mainBundle] pathForResource:@"seoul"
+                                                     ofType:@"utf8"];
+    data = [NSString stringWithContentsOfFile:path
+                                                encoding:NSUTF8StringEncoding
+                                                   error:NULL];
+    lines = [data componentsSeparatedByString:@"\n"];
+    
+    NSMutableSet * set2 = [[NSMutableSet alloc] init];
+    for(NSString * line in lines){
+        if([line isEqualToString:@""]) break;
+        NSArray * field = [line componentsSeparatedByString:@" "];
+        NSString * tmp = [field objectAtIndex:1];
+        NSString * name = [NSString stringWithFormat:@"%@역",tmp];
+        [set2 addObject:name];
+    }
+    NSMutableSet * set1 = [[NSMutableSet alloc] initWithSet:set];
+    [set1 minusSet:set2];
+    for(NSString * name in set1){
+        NSLog(@"%@", name);
+    }
+    NSLog(@"!!!!!!!!!!!!!!!!!!!!!!");
+    [set2 minusSet:set];
+    for(NSString * name in set2){
+        NSLog(@"%@", name);
+    }
+    */
     
     // Init Bottom View
     [button1 setImage:[UIImage imageNamed:@"page1_bottom_btn1"] forState:UIControlStateNormal];

@@ -101,4 +101,36 @@
     
 }
 
+- (NSString *)convertSubwayName:(NSString *)name{
+    if([name isEqualToString:@"총신대입구역(이수역)"]){
+        name = @"총신대입구(이수)역";
+    }else if([name isEqualToString:@"시청용인대역"]){
+        name = @"시청.용인대역";
+    }else if([name isEqualToString:@"전대에버랜드역"]){
+        name = @"전대.에버랜드역";
+    }else if([name isEqualToString:@"수유(강북구청)역"]){
+        name = @"수유역";
+    }else if([name isEqualToString:@"양평역"]){
+        name = @"양평(중앙선)역";
+    }else if([name isEqualToString:@"녹사평(용산구청)역"]){
+        name = @"녹사평역";
+    }else if([name isEqualToString:@"가천대역"]){
+        name = @"가천대역역";
+    }else if([name isEqualToString:@"운동장송담대역"]){
+        name = @"운동장.송담대역";
+    }else if([name isEqualToString:@"봉화산(서울의료원)역"]){
+        name = @"봉화산역";
+    }else if([name isEqualToString:@"신창(순천향대)역"]){
+        name = @"신창역";
+    }else if([name isEqualToString:@"쌍용(나사렛대)역"]){
+        name = @"쌍용역";
+    }else if([name isEqualToString:@"서울역"]){
+        name = @"서울역역";
+    }
+    
+    [name substringToIndex:[name length]-1];
+    
+    return name;
+}
+
 @end
