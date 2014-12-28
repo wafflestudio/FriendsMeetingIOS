@@ -15,7 +15,7 @@
 
 @implementation DetailViewController
 @synthesize detailTableView;
-@synthesize avgTime;
+@synthesize avgTimeLabel, avgTimeValue, minute, recommendStation, reason;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,7 +24,13 @@
     detailTableView.delegate = self;
     detailTableView.dataSource = self;
     [detailTableView setBackgroundColor:[UIColor clearColor]];
-    }
+    
+    [avgTimeLabel setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
+    [avgTimeValue setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
+    [minute setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
+    [recommendStation setFont:[UIFont fontWithName:@"BMJUAOTF" size:40]];
+    [reason setFont:[UIFont fontWithName:@"BMJUAOTF" size:13]];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,19 +60,15 @@
     
     if(indexPath.row == 0){
         cell.departureStation.text = @"잠실역";
-        cell.arrivalStation.text = @"강남역";
         cell.time.text = @"51";
     }else if(indexPath.row == 1){
         cell.departureStation.text = @"신림역";
-        cell.arrivalStation.text = @"강남역";
         cell.time.text = @"22";
     }else if(indexPath.row == 2){
         cell.departureStation.text = @"대림역";
-        cell.arrivalStation.text = @"강남역";
         cell.time.text = @"29";
     }else if(indexPath.row == 3){
         cell.departureStation.text = @"당산역";
-        cell.arrivalStation.text = @"강남역";
         cell.time.text = @"43";
     }else{}
     return cell;

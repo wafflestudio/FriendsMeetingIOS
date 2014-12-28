@@ -11,11 +11,11 @@
 @interface DetailTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel * departureStation;
-@property (nonatomic, strong) IBOutlet UILabel * arrivalStation;
 @property (nonatomic, strong) IBOutlet UILabel * time;
+@property (nonatomic, strong) IBOutlet UILabel * from;
+@property (nonatomic, strong) IBOutlet UILabel * minute;
 
 @property (nonatomic, strong) IBOutlet UIImageView * departureLine;
-@property (nonatomic, strong) IBOutlet UIImageView * arrivalLine;
 
 @end
 

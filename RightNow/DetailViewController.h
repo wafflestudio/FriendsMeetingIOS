@@ -12,6 +12,10 @@
 
 @property (nonatomic, strong) IBOutlet UITableView * detailTableView;
 
-@property (nonatomic, strong) IBOutlet UILabel * avgTime;
+@property (nonatomic, strong) IBOutlet UILabel * recommendStation;
+@property (nonatomic, strong) IBOutlet UILabel * reason;
+@property (nonatomic, strong) IBOutlet UILabel * avgTimeLabel;
+@property (nonatomic, strong) IBOutlet UILabel * avgTimeValue;
+@property (nonatomic, strong) IBOutlet UILabel * minute;
 
 @end
