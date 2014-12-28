@@ -290,11 +290,56 @@
                         <outlet property="button2" destination="zIJ-a9-9Rd" id="dGj-Wr-v5F"/>
                         <outlet property="button3" destination="atX-kr-iKI" id="3Uf-fi-pIR"/>
                         <outlet property="resultTableView" destination="xGi-YC-qkq" id="rGV-QB-AYq"/>
+                        <segue destination="7dZ-dn-PbR" kind="push" identifier="Detail" id="pbw-js-fgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbO-S4-vWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257" y="290"/>
+            <point key="canvasLocation" x="1282" y="284"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="qmr-m5-vUH">
+            <objects>
+                <viewController id="7dZ-dn-PbR" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OCj-ei-4o6"/>
+                        <viewControllerLayoutGuide type="bottom" id="71L-vu-o9d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Os-0n-RWX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tzC-qF-u2R">
+                                <rect key="frame" x="0.0" y="61" width="320" height="445"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bAk-kD-XYO">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bAk-kD-XYO" id="v4M-7k-Pyq">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="평균 시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU7-AS-bhC">
+                                <rect key="frame" x="78" y="514" width="165" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ja6-ln-jc8"/>
+                    <connections>
+                        <outlet property="avgTime" destination="BU7-AS-bhC" id="csU-0u-O0t"/>
+                        <outlet property="detailTableView" destination="tzC-qF-u2R" id="D99-RS-nIa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7e-fu-Ccp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Jcq-er-arl">

@@ -28,6 +28,9 @@
 		495B5B0A1A4EFD65007FC981 /* page2_listItem_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 495B5AFC1A4EFD65007FC981 /* page2_listItem_sample.png */; };
 		495B5B0B1A4EFD65007FC981 /* page2_subway_icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 495B5AFD1A4EFD65007FC981 /* page2_subway_icon2.png */; };
 		495B5B0C1A4EFD65007FC981 /* page2_top_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 495B5AFE1A4EFD65007FC981 /* page2_top_title.png */; };
+		4978055A1A50378500AB8086 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805561A50378500AB8086 /* DetailTableViewCell.m */; };
+		4978055B1A50378500AB8086 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497805571A50378500AB8086 /* DetailTableViewCell.xib */; };
+		4978055C1A50378500AB8086 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805591A50378500AB8086 /* DetailViewController.m */; };
 		499BDC961A4E5F5200F0736B /* BM-JUA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC951A4E5F5200F0736B /* BM-JUA.otf */; };
 		499BDCA71A4E610D00F0736B /* page1_bottom_btn1_click.png in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC981A4E610D00F0736B /* page1_bottom_btn1_click.png */; };
 		499BDCA81A4E610D00F0736B /* page1_bottom_btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC991A4E610D00F0736B /* page1_bottom_btn1.png */; };
@@ -87,6 +90,11 @@
 		495B5AFC1A4EFD65007FC981 /* page2_listItem_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2_listItem_sample.png; path = Resource/page2/page2_listItem_sample.png; sourceTree = "<group>"; };
 		495B5AFD1A4EFD65007FC981 /* page2_subway_icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2_subway_icon2.png; path = Resource/page2/page2_subway_icon2.png; sourceTree = "<group>"; };
 		495B5AFE1A4EFD65007FC981 /* page2_top_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page2_top_title.png; path = Resource/page2/page2_top_title.png; sourceTree = "<group>"; };
+		497805551A50378500AB8086 /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
+		497805561A50378500AB8086 /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
+		497805571A50378500AB8086 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		497805581A50378500AB8086 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		497805591A50378500AB8086 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		499BDC951A4E5F5200F0736B /* BM-JUA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BM-JUA.otf"; path = "Resource/Font/BM-JUA.otf"; sourceTree = "<group>"; };
 		499BDC981A4E610D00F0736B /* page1_bottom_btn1_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1_bottom_btn1_click.png; path = Resource/page1/page1_bottom_btn1_click.png; sourceTree = "<group>"; };
 		499BDC991A4E610D00F0736B /* page1_bottom_btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1_bottom_btn1.png; path = Resource/page1/page1_bottom_btn1.png; sourceTree = "<group>"; };
@@ -246,6 +254,11 @@
 				493745111A4810AD0082E968 /* ResultTableViewCell.h */,
 				493745121A4810AD0082E968 /* ResultTableViewCell.m */,
 				4937450F1A4808560082E968 /* ResultTableViewCell.xib */,
+				497805551A50378500AB8086 /* DetailTableViewCell.h */,
+				497805561A50378500AB8086 /* DetailTableViewCell.m */,
+				497805571A50378500AB8086 /* DetailTableViewCell.xib */,
+				497805581A50378500AB8086 /* DetailViewController.h */,
+				497805591A50378500AB8086 /* DetailViewController.m */,
 				F5C34C3819CD3CB0004E00E9 /* Main.storyboard */,
 				F5C34C3B19CD3CB0004E00E9 /* Images.xcassets */,
 				F5C34C3D19CD3CB0004E00E9 /* LaunchScreen.xib */,
@@ -389,6 +402,7 @@
 				499BDCB51A4E610D00F0736B /* page1_top_title.png in Resources */,
 				495B5B091A4EFD65007FC981 /* page2_listItem_bg.png in Resources */,
 				499BDCBD1A4E879E00F0736B /* page1_button_left.png in Resources */,
+				4978055B1A50378500AB8086 /* DetailTableViewCell.xib in Resources */,
 				495B5B021A4EFD65007FC981 /* page2_bottom_btn2.png in Resources */,
 				499BDCAF1A4E610D00F0736B /* page1_bottom_title.png in Resources */,
 				499BDCBE1A4E879E00F0736B /* page1_button_right_click.png in Resources */,
@@ -416,10 +430,12 @@
 			files = (
 				4937450B1A4803BB0082E968 /* UIImage+IMAGECategories.m in Sources */,
 				F5C34C3719CD3CB0004E00E9 /* MainViewController.m in Sources */,
+				4978055C1A50378500AB8086 /* DetailViewController.m in Sources */,
 				4937450A1A4803BB0082E968 /* UIColor+COLORCategories.m in Sources */,
 				F5C34C3419CD3CB0004E00E9 /* AppDelegate.m in Sources */,
 				F5C34C3119CD3CB0004E00E9 /* main.m in Sources */,
 				493745131A4810AD0082E968 /* ResultTableViewCell.m in Sources */,
+				4978055A1A50378500AB8086 /* DetailTableViewCell.m in Sources */,
 				4937450E1A4807A70082E968 /* ResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
