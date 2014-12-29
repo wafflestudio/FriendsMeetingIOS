@@ -10,6 +10,7 @@
 
 @interface DetailTableViewCell : UITableViewCell
 
+
 @property (nonatomic, strong) IBOutlet UILabel * departureStation;
 @property (nonatomic, strong) IBOutlet UILabel * time;
 @property (nonatomic, strong) IBOutlet UILabel * from;

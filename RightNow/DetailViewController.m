@@ -69,6 +69,9 @@
 {
     DetailTableViewCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"DetailTableViewCell" owner:nil options:nil] objectAtIndex:0];
     
+    NSString * subway_name;
+    NSString * subway_line = @"3";
+    
     if(indexPath.row == 0){
         cell.departureStation.text = @"잠실역";
         cell.time.text = @"51";
@@ -82,6 +85,11 @@
         cell.departureStation.text = @"당산역";
         cell.time.text = @"43";
     }else{}
+    
+    cell.departureLine.image = [UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif",subway_line]];
+    if(cell.departureLine.image == nil) {
+        cell.departureLine.image = [UIImage imageNamed:@"sub_2.gif"];
+    }
     return cell;
 }
 

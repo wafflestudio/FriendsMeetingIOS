@@ -173,6 +173,9 @@
 - (void)subwayButtonClicked:(UIButton *)sender{
     NSLog(@"button Clicked %@", [[subwayDic objectForKey:[NSNumber numberWithInteger:sender.tag]] objectAtIndex:0]);
 
+    // Remove
+    [self removeTmpSubview];
+    
     // Set subwayClickedImageView
     CGPoint center = CGPointMake(sender.frame.origin.x + sender.frame.size.width/2, sender.frame.origin.y + sender.frame.size.height/2);
     CGSize imageSize = CGSizeMake(131, 53);
@@ -325,7 +328,7 @@
 }
 
 // ScrollView Delegate
-- (void)hideStaticSubview{
+- (void)removeStaticSubview{
     for (UIImageView * view in [scrollView subviews]){
         // Number View
         if(view.tag == TMP){
@@ -333,7 +336,7 @@
         }
     }
 }
--(void)hideTmpSubview{
+-(void)removeTmpSubview{
     for (UIImageView * view in [scrollView subviews]){
         // Number View
         if(view.tag == STATIC){
@@ -341,9 +344,9 @@
         }
     }
 }
-- (void)hideAllSubview{
-    [self hideStaticSubview];
-    [self hideTmpSubview];
+- (void)removeAllSubview{
+    [self removeStaticSubview];
+    [self removeTmpSubview];
 }
 - (void)reloadStaticSubview{
     for (UIImageView * view in [scrollView subviews]){
@@ -387,10 +390,10 @@
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)_scrollView withView:(UIView *)view{
-    [self hideAllSubview];
+    [self removeAllSubview];
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)_scrollView{
-    [self hideTmpSubview];
+    [self removeTmpSubview];
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)_scrollView withView:(UIView *)view atScale:(CGFloat)scale{
@@ -412,7 +415,7 @@
 
 - (IBAction)refreshSubways:(id)sender{
     [selectedSubway removeAllObjects];
-    [self hideTmpSubview];
+    [self removeTmpSubview];
     [self reloadStaticSubview];
 }
 @end

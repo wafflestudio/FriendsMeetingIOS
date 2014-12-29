@@ -130,6 +130,8 @@
     
     
     NSString * subway_name = [[results objectAtIndex:indexPath.row] objectAtIndex:0];
+    NSString * subway_line = [[results objectAtIndex:indexPath.row] objectAtIndex:1];
+    
     if(indexPath.row == 0){
         cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
         cell.desc.text = @"모든 사람들의 이동시간의 합이 최소가 되는 장소";
@@ -145,6 +147,10 @@
     }else{
         cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
         cell.desc.text = @"데이트하기 좋은 장소";
+    }
+    cell.line.image = [UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif",subway_line]];
+    if(cell.line.image == nil) {
+        cell.line.image = [UIImage imageNamed:@"sub_2.gif"];
     }
     return cell;
 }
