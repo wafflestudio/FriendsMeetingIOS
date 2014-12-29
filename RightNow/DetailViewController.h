@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) IBOutlet UITableView * detailTableView;
 
+@property (nonatomic, strong) IBOutlet UILabel * titleLabel;
 @property (nonatomic, strong) IBOutlet UIButton * backButton;
 
 @property (nonatomic, strong) IBOutlet UILabel * recommendStation;

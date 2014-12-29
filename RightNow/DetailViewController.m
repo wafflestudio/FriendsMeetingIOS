@@ -15,11 +15,17 @@
 
 @implementation DetailViewController
 @synthesize detailTableView;
-@synthesize backButton;
+@synthesize titleLabel, backButton;
 @synthesize avgTimeLabel, avgTimeValue, minute, recommendStation, reason;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // init Top View
+    [backButton setTitle:@"<" forState:UIControlStateNormal];
+    [[backButton titleLabel] setFont:[UIFont fontWithName:@"BMJUAOTF" size:21]];
+    [titleLabel setText:@"추천장소"];
+    [titleLabel setFont:[UIFont fontWithName:@"BMJUAOTF" size:21]];
     
     // init DetailTableView
     detailTableView.delegate = self;

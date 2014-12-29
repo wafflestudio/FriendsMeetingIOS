@@ -15,10 +15,14 @@
 
 @property (nonatomic, strong) IBOutlet UIScrollView * scrollView;
 
+@property (nonatomic, strong) IBOutlet UILabel * titleLabel;
+@property (nonatomic, strong) IBOutlet UIButton * refreshButton;
+
 @property (nonatomic, strong) IBOutlet UIButton * button1;
 @property (nonatomic, strong) IBOutlet UIButton * button2;
 @property (nonatomic, strong) IBOutlet UIButton * button3;
 @property (nonatomic, strong) IBOutlet UIButton * result;
 
+- (IBAction)refreshSubways:(id)sender;
 @end
 

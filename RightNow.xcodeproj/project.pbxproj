@@ -37,6 +37,7 @@
 		4978055B1A50378500AB8086 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497805571A50378500AB8086 /* DetailTableViewCell.xib */; };
 		4978055C1A50378500AB8086 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805591A50378500AB8086 /* DetailViewController.m */; };
 		4996AFAC1A50D920006638BE /* page1_button_deact_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4996AFAB1A50D920006638BE /* page1_button_deact_bg.png */; };
+		4996AFB01A50F383006638BE /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 4996AFAF1A50F383006638BE /* Server.m */; };
 		499BDC961A4E5F5200F0736B /* BM-JUA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC951A4E5F5200F0736B /* BM-JUA.otf */; };
 		499BDCA71A4E610D00F0736B /* page1_bottom_btn1_click.png in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC981A4E610D00F0736B /* page1_bottom_btn1_click.png */; };
 		499BDCA81A4E610D00F0736B /* page1_bottom_btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 499BDC991A4E610D00F0736B /* page1_bottom_btn1.png */; };
@@ -107,6 +108,8 @@
 		497805581A50378500AB8086 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		497805591A50378500AB8086 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4996AFAB1A50D920006638BE /* page1_button_deact_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1_button_deact_bg.png; path = Resource/page1/page1_button_deact_bg.png; sourceTree = "<group>"; };
+		4996AFAE1A50F383006638BE /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		4996AFAF1A50F383006638BE /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		499BDC951A4E5F5200F0736B /* BM-JUA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BM-JUA.otf"; path = "Resource/Font/BM-JUA.otf"; sourceTree = "<group>"; };
 		499BDC981A4E610D00F0736B /* page1_bottom_btn1_click.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1_bottom_btn1_click.png; path = Resource/page1/page1_bottom_btn1_click.png; sourceTree = "<group>"; };
 		499BDC991A4E610D00F0736B /* page1_bottom_btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page1_bottom_btn1.png; path = Resource/page1/page1_bottom_btn1.png; sourceTree = "<group>"; };
@@ -202,6 +205,15 @@
 			name = Page2;
 			sourceTree = "<group>";
 		};
+		4996AFAD1A50F375006638BE /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				4996AFAE1A50F383006638BE /* Server.h */,
+				4996AFAF1A50F383006638BE /* Server.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
 		499BDC921A4E5F0F00F0736B /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +281,7 @@
 		F5C34C2D19CD3CB0004E00E9 /* RightNow */ = {
 			isa = PBXGroup;
 			children = (
+				4996AFAD1A50F375006638BE /* Server */,
 				494EB4251A48002700535999 /* CustomCategories */,
 				49B2D4511A47FEE100ACF23F /* Resource */,
 				F5C34C3219CD3CB0004E00E9 /* AppDelegate.h */,
@@ -464,6 +477,7 @@
 				F5C34C3719CD3CB0004E00E9 /* MainViewController.m in Sources */,
 				4978055C1A50378500AB8086 /* DetailViewController.m in Sources */,
 				4937450A1A4803BB0082E968 /* UIColor+COLORCategories.m in Sources */,
+				4996AFB01A50F383006638BE /* Server.m in Sources */,
 				F5C34C3419CD3CB0004E00E9 /* AppDelegate.m in Sources */,
 				F5C34C3119CD3CB0004E00E9 /* main.m in Sources */,
 				493745131A4810AD0082E968 /* ResultTableViewCell.m in Sources */,
@@ -592,9 +606,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RightNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -602,9 +619,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RightNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

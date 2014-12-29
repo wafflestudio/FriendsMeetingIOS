@@ -27,13 +27,14 @@
 
 @implementation MainViewController
 @synthesize scrollView;
+@synthesize titleLabel, refreshButton;
 @synthesize button1, button2, button3, result;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Initiate
-    button_size = 20;
+    button_size = 25;
     width_std = 4007.73;
     height_std = 3732.199;
     scale = 4;
@@ -54,6 +55,12 @@
     
     scrollView.delegate = self;
     [scrollView setContentOffset:CGPointMake(width/2 - scrollView.frame.size.width/2, height/2 - scrollView.frame.size.height/2)];
+    
+    
+    // init Top View
+    [titleLabel setText:@"출발지 입력하기"];
+    [titleLabel setFont:[UIFont fontWithName:@"BMJUAOTF" size:21]];
+    
     
     // Add Buttons
     NSString* path = [[NSBundle mainBundle] pathForResource:@"subway_corrd"
@@ -293,12 +300,23 @@
 
 // Result Button Clicked
 - (void)resultButtonClicked:(UIButton *) sender{
-    [self performSegueWithIdentifier:@"Result" sender:self];
+    if([selectedSubway count] != 0){
+        [self performSegueWithIdentifier:@"Result" sender:self];
+    }
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"Result"])
     {
+        ResultViewController * rv = segue.destinationViewController;
+        rv.selectedSubways = selectedSubway;
+        if(button1.selected){
+            rv.status = [NSNumber numberWithInt:0];
+        }else if(button2.selected){
+            rv.status = [NSNumber numberWithInt:1];
+        }else if(button3.selected){
+            rv.status = [NSNumber numberWithInt:2];
+        }
     }
 }
 
@@ -392,4 +410,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)refreshSubways:(id)sender{
+    [selectedSubway removeAllObjects];
+    [self hideTmpSubview];
+    [self reloadStaticSubview];
+}
 @end
