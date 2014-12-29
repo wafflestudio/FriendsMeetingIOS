@@ -10,6 +10,8 @@
 
 @interface DetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSDictionary * detailResults;
+
 @property (nonatomic, strong) IBOutlet UITableView * detailTableView;
 
 @property (nonatomic, strong) IBOutlet UILabel * titleLabel;
@@ -17,8 +19,8 @@
 
 @property (nonatomic, strong) IBOutlet UILabel * recommendStation;
 @property (nonatomic, strong) IBOutlet UILabel * reason;
+@property (nonatomic, strong) IBOutlet UIImageView * recommendStationLine;
+
 @property (nonatomic, strong) IBOutlet UILabel * avgTimeLabel;
-@property (nonatomic, strong) IBOutlet UILabel * avgTimeValue;
-@property (nonatomic, strong) IBOutlet UILabel * minute;
 
 @end

@@ -15,8 +15,10 @@
 
 @implementation DetailViewController
 @synthesize detailTableView;
+@synthesize detailResults;
 @synthesize titleLabel, backButton;
-@synthesize avgTimeLabel, avgTimeValue, minute, recommendStation, reason;
+@synthesize avgTimeLabel;
+@synthesize recommendStation, reason, recommendStationLine;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,9 +35,21 @@
     [detailTableView setBackgroundColor:[UIColor clearColor]];
     
     [avgTimeLabel setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
-    [avgTimeValue setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
-    [minute setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
+    NSInteger total_time = 0;
+    int cnt = 0;
+    for(NSArray * array in [detailResults objectForKey:@"from"]){
+        total_time += [[array objectAtIndex:2] integerValue];
+        cnt++;
+    }
+    [avgTimeLabel setText:[NSString stringWithFormat:@"평균소요시간 :   %d분", (int)(total_time/((double)cnt))]];
+    
+    recommendStation.text = [[[detailResults objectForKey:@"to"] objectAtIndex:0] stringByAppendingString:@"역"];
     [recommendStation setFont:[UIFont fontWithName:@"BMJUAOTF" size:40]];
+    
+    [recommendStationLine setImage:[UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif", [[detailResults objectForKey:@"to"] objectAtIndex:1]]]];
+    if(recommendStationLine.image == nil) [recommendStationLine setImage:[UIImage imageNamed:@"sub_trans.gif"]];
+        
+    reason.text = [[detailResults objectForKey:@"to"] objectAtIndex:2];
     [reason setFont:[UIFont fontWithName:@"BMJUAOTF" size:13]];
     
     [backButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [[detailResults objectForKey:@"from"] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -69,26 +83,15 @@
 {
     DetailTableViewCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"DetailTableViewCell" owner:nil options:nil] objectAtIndex:0];
     
-    NSString * subway_name;
-    NSString * subway_line = @"3";
+    NSString * subway_name = [[[detailResults objectForKey:@"from"] objectAtIndex:indexPath.row] objectAtIndex:0];
+    NSString * subway_line = [[[detailResults objectForKey:@"from"] objectAtIndex:indexPath.row] objectAtIndex:1];
+    NSNumber * time = [[[detailResults objectForKey:@"from"] objectAtIndex:indexPath.row] objectAtIndex:2];
     
-    if(indexPath.row == 0){
-        cell.departureStation.text = @"잠실역";
-        cell.time.text = @"51";
-    }else if(indexPath.row == 1){
-        cell.departureStation.text = @"신림역";
-        cell.time.text = @"22";
-    }else if(indexPath.row == 2){
-        cell.departureStation.text = @"대림역";
-        cell.time.text = @"29";
-    }else if(indexPath.row == 3){
-        cell.departureStation.text = @"당산역";
-        cell.time.text = @"43";
-    }else{}
-    
+    cell.departureStation.text = subway_name;
+    cell.time.text = [time stringValue];
     cell.departureLine.image = [UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif",subway_line]];
     if(cell.departureLine.image == nil) {
-        cell.departureLine.image = [UIImage imageNamed:@"sub_2.gif"];
+        cell.departureLine.image = [UIImage imageNamed:@"sub_trans.gif"];
     }
     return cell;
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -385,16 +386,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 소요 시간:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU7-AS-bhC">
-                                <rect key="frame" x="62" y="498" width="140" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="O52-46-h89"/>
-                                    <constraint firstAttribute="height" constant="37" id="e5U-0V-EzQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u56-d6-35J">
                                 <rect key="frame" x="10" y="57" width="304" height="80"/>
                                 <subviews>
@@ -408,7 +399,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="v6s-gd-knO"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강남역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frn-Xt-hUT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강남역" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="frn-Xt-hUT">
                                                 <rect key="frame" x="56" y="0.0" width="104" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="ghy-Dn-NRC"/>
@@ -448,14 +439,11 @@
                                     <constraint firstAttribute="height" constant="80" id="eMS-R9-mfW"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="43" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-37-o2V">
-                                <rect key="frame" x="207" y="506" width="20" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0K-Qr-pY4">
-                                <rect key="frame" x="229" y="506" width="15" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 소요 시간: 43분" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU7-AS-bhC">
+                                <rect key="frame" x="89" y="498" width="142" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="RR7-zh-1RB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -464,32 +452,29 @@
                         <color key="backgroundColor" red="0.7803921568627451" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tzC-qF-u2R" firstAttribute="top" secondItem="u56-d6-35J" secondAttribute="bottom" id="4Se-Em-oou"/>
-                            <constraint firstItem="BU7-AS-bhC" firstAttribute="top" secondItem="tzC-qF-u2R" secondAttribute="bottom" constant="22" id="8c0-te-fWG"/>
+                            <constraint firstItem="71L-vu-o9d" firstAttribute="top" secondItem="BU7-AS-bhC" secondAttribute="bottom" constant="33" id="DZH-1G-nKM"/>
                             <constraint firstItem="tzC-qF-u2R" firstAttribute="leading" secondItem="6Os-0n-RWX" secondAttribute="leading" constant="10" id="F6Q-1J-aNS"/>
-                            <constraint firstItem="sMY-37-o2V" firstAttribute="leading" secondItem="BU7-AS-bhC" secondAttribute="trailing" constant="5" id="HVQ-Ny-4Yp"/>
-                            <constraint firstAttribute="centerX" secondItem="BU7-AS-bhC" secondAttribute="centerX" constant="28" id="L47-sg-SgD"/>
                             <constraint firstItem="hys-l6-Xff" firstAttribute="leading" secondItem="6Os-0n-RWX" secondAttribute="leading" id="Loq-K7-Ng4"/>
                             <constraint firstAttribute="trailing" secondItem="tzC-qF-u2R" secondAttribute="trailing" constant="10" id="N4u-PL-oai"/>
-                            <constraint firstItem="e0K-Qr-pY4" firstAttribute="leading" secondItem="sMY-37-o2V" secondAttribute="trailing" constant="2" id="Tjx-Rv-w2t"/>
-                            <constraint firstItem="e0K-Qr-pY4" firstAttribute="centerY" secondItem="sMY-37-o2V" secondAttribute="centerY" id="UKq-hl-vBS"/>
+                            <constraint firstItem="BU7-AS-bhC" firstAttribute="top" secondItem="tzC-qF-u2R" secondAttribute="bottom" constant="22" id="OfI-cM-j8L"/>
                             <constraint firstItem="hys-l6-Xff" firstAttribute="top" secondItem="OCj-ei-4o6" secondAttribute="bottom" constant="-20" id="a2N-Zg-ikJ"/>
                             <constraint firstAttribute="trailing" secondItem="hys-l6-Xff" secondAttribute="trailing" id="aXt-D9-E05"/>
                             <constraint firstItem="u56-d6-35J" firstAttribute="leading" secondItem="6Os-0n-RWX" secondAttribute="leading" constant="10" id="bPt-MT-EZz"/>
                             <constraint firstAttribute="trailing" secondItem="u56-d6-35J" secondAttribute="trailing" constant="6" id="dwt-uO-mGf"/>
                             <constraint firstItem="u56-d6-35J" firstAttribute="top" secondItem="hys-l6-Xff" secondAttribute="bottom" constant="4" id="mmm-8f-cXr"/>
-                            <constraint firstItem="BU7-AS-bhC" firstAttribute="centerY" secondItem="sMY-37-o2V" secondAttribute="centerY" id="oud-Fc-Imb"/>
-                            <constraint firstItem="71L-vu-o9d" firstAttribute="top" secondItem="BU7-AS-bhC" secondAttribute="bottom" constant="33" id="vtG-xw-oOE"/>
+                            <constraint firstAttribute="centerX" secondItem="BU7-AS-bhC" secondAttribute="centerX" id="rAM-co-nrZ"/>
+                            <constraint firstItem="BU7-AS-bhC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Os-0n-RWX" secondAttribute="leadingMargin" constant="10" id="tV9-DJ-G6N"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BU7-AS-bhC" secondAttribute="trailing" constant="10" id="xDz-UR-EYb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ja6-ln-jc8"/>
                     <connections>
                         <outlet property="avgTimeLabel" destination="BU7-AS-bhC" id="fDu-L7-XzN"/>
-                        <outlet property="avgTimeValue" destination="sMY-37-o2V" id="SOk-cY-K3s"/>
                         <outlet property="backButton" destination="fYO-Ox-gHo" id="Egy-jY-Tlc"/>
                         <outlet property="detailTableView" destination="tzC-qF-u2R" id="D99-RS-nIa"/>
-                        <outlet property="minute" destination="e0K-Qr-pY4" id="75O-LL-8jH"/>
                         <outlet property="reason" destination="2b2-rF-Jcd" id="INV-z9-NHv"/>
                         <outlet property="recommendStation" destination="frn-Xt-hUT" id="DHS-aM-RYY"/>
+                        <outlet property="recommendStationLine" destination="d3t-A6-g95" id="nUD-bj-mF9"/>
                         <outlet property="titleLabel" destination="1gv-ak-KZ8" id="vjE-6P-k3T"/>
                     </connections>
                 </viewController>

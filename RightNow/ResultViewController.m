@@ -10,9 +10,12 @@
 #import "ResultTableViewCell.h"
 #import "UIImage+IMAGECategories.h"
 #import "Server.h"
+
+#import "DetailViewController.h"
 @interface ResultViewController (){
     
-    NSMutableArray * results;
+    NSDictionary * results;
+    NSArray * descArray;
 }
 
 @end
@@ -26,7 +29,14 @@
     [super viewDidLoad];
     
     // init results
-    results = [[NSMutableArray alloc] init];
+    results = [[NSDictionary alloc] init];
+    descArray = [[NSArray alloc] initWithObjects:
+                 @"모든 사람들의 이동시간의 합이 최소가 되는 장소",
+                 @"가장 오래 걸리는 사람의 이동시간이 최소가 되는 장소",
+                 @"영화관이 가장 가까운 장소",
+                 @"맛집이 많은 장소",
+                 @"카페가 많은 장소",
+                 nil];
     
     // init ResultTableView
     resultTableView.delegate = self;
@@ -77,11 +87,8 @@
 }
 
 - (void)getResultFromServer:(NSNotification *)notification{
-    NSDictionary * dictionary = [notification userInfo];
-    for(NSArray * array in [dictionary objectForKey:@"results"]){
-        NSLog(@"%@", [array objectAtIndex:0]);
-        [results addObject:array];
-    }
+    results = [notification userInfo];
+    
     [resultTableView setHidden:NO];
     
     [resultTableView reloadData];
@@ -107,7 +114,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -117,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [results count];
+    return [[results objectForKey:@"results"] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -129,35 +135,52 @@
     ResultTableViewCell * cell = [[[NSBundle mainBundle] loadNibNamed:@"ResultTableViewCell" owner:nil options:nil] objectAtIndex:0];
     
     
-    NSString * subway_name = [[results objectAtIndex:indexPath.row] objectAtIndex:0];
-    NSString * subway_line = [[results objectAtIndex:indexPath.row] objectAtIndex:1];
+    NSString * subway_name = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:0];
+    NSString * subway_line = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:1];
     
-    if(indexPath.row == 0){
-        cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
-        cell.desc.text = @"모든 사람들의 이동시간의 합이 최소가 되는 장소";
-    }else if(indexPath.row == 1){
-        cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
-        cell.desc.text = @"가장 오래 걸리는 사람의 이동시간이 최소가 되는 장소";
-    }else if(indexPath.row == 2){
-        cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
-        cell.desc.text = @"막차 시간이 가장 늦은 장소";
-    }else if(indexPath.row == 3){
-        cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
-        cell.desc.text = @"영화관이 가까운 장소";
-    }else{
-        cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
-        cell.desc.text = @"데이트하기 좋은 장소";
-    }
+    cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
+    cell.desc.text = [descArray objectAtIndex:indexPath.row];
     cell.line.image = [UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif",subway_line]];
     if(cell.line.image == nil) {
-        cell.line.image = [UIImage imageNamed:@"sub_2.gif"];
+        cell.line.image = [UIImage imageNamed:@"sub_trans.gif"];
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"Detail" sender:self];
-    
+    [self performSegueWithIdentifier:@"Detail" sender:indexPath];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)indexPath
+{
+    if ([[segue identifier] isEqualToString:@"Detail"])
+    {
+        DetailViewController * dv = segue.destinationViewController;
+        NSMutableDictionary * detailResults = [[NSMutableDictionary alloc] init];
+        // to (destination)
+        NSString * subway_name = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:0];
+        NSString * subway_line = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:1];
+        NSString * desc = [descArray objectAtIndex:indexPath.row];
+        [detailResults setObject:[NSArray arrayWithObjects:subway_name, subway_line, desc, nil] forKey:@"to"];
+        
+        // from
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+        
+        int cnt = 0;
+        for(id key in selectedSubways){
+            NSArray * value = [selectedSubways objectForKey:key];
+            
+            for(int i=0; i<[[value objectAtIndex:2] integerValue]; i++){
+                NSString * subway_name = [value objectAtIndex:1];
+                NSString * subway_line = [[results objectForKey:@"from"] objectAtIndex:cnt];
+                NSNumber * time = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:cnt+2];
+                [dic setObject:[NSArray arrayWithObjects:subway_name, subway_line, time, nil] forKey:subway_name];
+                cnt++;
+            }
+        }
+        [detailResults setObject:[dic allValues] forKey:@"from"];
+        
+        dv.detailResults = detailResults;
+    }
 }
 
 
