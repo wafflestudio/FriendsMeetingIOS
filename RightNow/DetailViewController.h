@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) IBOutlet UITableView * detailTableView;
 
+@property (nonatomic, strong) IBOutlet UIButton * backButton;
+
 @property (nonatomic, strong) IBOutlet UILabel * recommendStation;
 @property (nonatomic, strong) IBOutlet UILabel * reason;
 @property (nonatomic, strong) IBOutlet UILabel * avgTimeLabel;

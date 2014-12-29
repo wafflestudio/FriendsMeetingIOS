@@ -15,6 +15,7 @@
 
 @implementation DetailViewController
 @synthesize detailTableView;
+@synthesize backButton;
 @synthesize avgTimeLabel, avgTimeValue, minute, recommendStation, reason;
 
 - (void)viewDidLoad {
@@ -30,8 +31,12 @@
     [minute setFont:[UIFont fontWithName:@"BMJUAOTF" size:22]];
     [recommendStation setFont:[UIFont fontWithName:@"BMJUAOTF" size:40]];
     [reason setFont:[UIFont fontWithName:@"BMJUAOTF" size:13]];
+    
+    [backButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+- (void)backButtonClicked:(UIButton *)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

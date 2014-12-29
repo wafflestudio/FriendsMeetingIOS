@@ -17,6 +17,10 @@
     double width;
     double height;
     double scale;
+    
+#define STATIC  119
+#define TMP     1119
+#define NAME    111
 }
 
 @end
@@ -76,7 +80,7 @@
         
         int ID = [[field objectAtIndex:3] intValue];
  
-        [subwayDic setObject:name forKey:[NSNumber numberWithInt:ID]];
+        [subwayDic setObject:[[NSArray alloc] initWithObjects:name, [NSNumber numberWithInt:ID], [NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil] forKey:[NSNumber numberWithInt:ID]];
  
         // Add Button
         [self addButtonWithID:subwayImageView x:x y:y ID:ID];
@@ -160,15 +164,8 @@
 
 // Subway Button Clicked
 - (void)subwayButtonClicked:(UIButton *)sender{
-    NSLog(@"button Clicked %@", [subwayDic objectForKey:[NSNumber numberWithInteger:sender.tag]]);
-    
-    // Remove original subwayClickedImageView
-    for (UIImageView * view in [scrollView subviews]){
-        if(view.tag == 119){
-            [view removeFromSuperview];
-        }
-    }
-    
+    NSLog(@"button Clicked %@", [[subwayDic objectForKey:[NSNumber numberWithInteger:sender.tag]] objectAtIndex:0]);
+
     // Set subwayClickedImageView
     CGPoint center = CGPointMake(sender.frame.origin.x + sender.frame.size.width/2, sender.frame.origin.y + sender.frame.size.height/2);
     CGSize imageSize = CGSizeMake(131, 53);
@@ -202,7 +199,7 @@
     [plusButton addTarget:self action:@selector(plusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UILabel * number = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width/2-rect.size.width/(3.25*2), rect.size.height/2-rect.size.height/2, 40, 40)];
+    UILabel * number = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width/2-20, rect.size.height/2-25, 40, 40)];
     [number setFont:[UIFont fontWithName:@"BMJUAOTF" size:20]];
     
     
@@ -212,14 +209,15 @@
     [number setText:[NSString stringWithFormat:@"%d명",[count intValue]]];
     [number setTextColor:[UIColor whiteColor]];
     [number setTextAlignment:NSTextAlignmentCenter];
-    number.tag = 111;
+    number.tag = NAME;
     
     [bgImageView addSubview:minusButton];
     [bgImageView addSubview:plusButton
      ];
     [bgImageView addSubview:number];
     
-    bgImageView.tag = 119;
+    bgImageView.tag = STATIC;
+    
     
     [scrollView addSubview:bgImageView];
 }
@@ -237,9 +235,9 @@
     
     // update view
     for (UIImageView * view in [scrollView subviews]){
-        if(view.tag == 119){
+        if(view.tag == STATIC){
             for(UILabel * label in [view subviews]){
-                if(label.tag == 111){
+                if(label.tag == NAME){
                     [label setText:[NSString stringWithFormat:@"%d명", [count intValue]-1]];
                 }
             }
@@ -256,9 +254,9 @@
     
     // update view
     for (UIImageView * view in [scrollView subviews]){
-        if(view.tag == 119){
+        if(view.tag == STATIC){
             for(UILabel * label in [view subviews]){
-                if(label.tag == 111){
+                if(label.tag == NAME){
                     [label setText:[NSString stringWithFormat:@"%d명", [count intValue]+1]];
                 }
             }
@@ -273,9 +271,13 @@
     if([selectedSubway objectForKey:subway_id]){
         [selectedSubway removeObjectForKey:subway_id];
     }
-    [selectedSubway setObject:[NSArray arrayWithObjects:subway_id, [subwayDic objectForKey:subway_id], count, nil] forKey:subway_id];
+    
+    if([count intValue]!=0){
+        [selectedSubway setObject:[NSArray arrayWithObjects:subway_id, [[subwayDic objectForKey:subway_id] objectAtIndex:0], count, nil] forKey:subway_id];
+    }
+    
+    [self reloadStaticSubview];
 }
-
 
 // Popularity Button Clicked
 - (void)popularityButtonClicked:(UIButton *)sender{
@@ -297,9 +299,6 @@
 {
     if ([[segue identifier] isEqualToString:@"Result"])
     {
-//        ResultViewController *vc = [segue destinationViewController];
-        
-        // Send data
     }
 }
 
@@ -308,25 +307,85 @@
 }
 
 // ScrollView Delegate
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)_scrollView{
-    // Remove original subwayClickedImageView
-    for (UIImageView * view in [_scrollView subviews]){
-        if(view.tag == 119){
+- (void)hideStaticSubview{
+    for (UIImageView * view in [scrollView subviews]){
+        // Number View
+        if(view.tag == TMP){
             [view removeFromSuperview];
         }
     }
-    UIView * subwayImageView = [[scrollView subviews] objectAtIndex:0];
-    return subwayImageView;
 }
-- (void)scrollViewWillBeginDragging:(UIScrollView *)_scrollView{
-    // Remove original subwayClickedImageView
-    for (UIImageView * view in [_scrollView subviews]){
-        if(view.tag == 119){
+-(void)hideTmpSubview{
+    for (UIImageView * view in [scrollView subviews]){
+        // Number View
+        if(view.tag == STATIC){
             [view removeFromSuperview];
         }
+    }
+}
+- (void)hideAllSubview{
+    [self hideStaticSubview];
+    [self hideTmpSubview];
+}
+- (void)reloadStaticSubview{
+    for (UIImageView * view in [scrollView subviews]){
+        // Number View
+        if(view.tag == TMP){
+            [view removeFromSuperview];
+        }
+    }
+    
+    // Added static number image
+    for(id key in selectedSubway){
+        NSArray * subway = [subwayDic objectForKey:key];
+        CGPoint center = CGPointMake([[subway objectAtIndex:2] floatValue], [[subway objectAtIndex:3] floatValue]);
+        CGSize imageSize = CGSizeMake(70, 51);
+        
+        NSLog(@"%f %f", center.x, center.y);
+        
+        // Resize with scrollView.zoomScale
+        CGRect rect = CGRectMake(center.x*scrollView.zoomScale- imageSize.width/2 + 1, center.y*scrollView.zoomScale - imageSize.height , imageSize.width, imageSize.height);
+        
+        // Init Images
+        UIImageView * staticImageView = [[UIImageView alloc] initWithFrame:rect];
+        staticImageView.image = [UIImage imageNamed:@"page1_button_deact_bg"];
+        staticImageView.userInteractionEnabled = YES;
+        
+        // Init number
+        UILabel * number = [[UILabel alloc] initWithFrame:CGRectMake(rect.size.width/2- 20, rect.size.height/2-25, 40, 40)];
+        [number setFont:[UIFont fontWithName:@"BMJUAOTF" size:20]];
+        
+        NSNumber * count = [[selectedSubway objectForKey:key] objectAtIndex:2];
+        [number setText:[NSString stringWithFormat:@"%d명",[count intValue]]];
+        [number setTextColor:[UIColor whiteColor]];
+        [number setTextAlignment:NSTextAlignmentCenter];
+        number.tag = NAME;
+        
+        [staticImageView addSubview:number];
+        [staticImageView setHidden:NO];
+        staticImageView.tag = TMP;
+        [scrollView addSubview:staticImageView];
     }
 }
 
+- (void)scrollViewWillBeginZooming:(UIScrollView *)_scrollView withView:(UIView *)view{
+    [self hideAllSubview];
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)_scrollView{
+    [self hideTmpSubview];
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)_scrollView withView:(UIView *)view atScale:(CGFloat)scale{
+    [self reloadStaticSubview];
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)_scrollView willDecelerate:(BOOL)decelerate{
+    [self reloadStaticSubview];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)_scrollView{
+    UIView * subwayImageView = [[_scrollView subviews] objectAtIndex:0];
+    return subwayImageView;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
