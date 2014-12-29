@@ -17,7 +17,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHW-TY-2mZ">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="75"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page2_subway_icon2.png" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-L7-nOj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub_2.gif" translatesAutoresizingMaskIntoConstraints="NO" id="bzR-L7-nOj">
                                 <rect key="frame" x="8" y="8" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="MG8-H8-e8M"/>
@@ -91,6 +91,6 @@
     </objects>
     <resources>
         <image name="page2_icon_arrow.png" width="51" height="85"/>
-        <image name="page2_subway_icon2.png" width="74" height="85"/>
+        <image name="sub_2.gif" width="400" height="400"/>
     </resources>
 </document>

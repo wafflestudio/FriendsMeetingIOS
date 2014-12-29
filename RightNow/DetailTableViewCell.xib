@@ -37,7 +37,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="page3_subway_icon2_small.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Yj-fV-ZqG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sub_2.gif" translatesAutoresizingMaskIntoConstraints="NO" id="0Yj-fV-ZqG">
                                 <rect key="frame" x="20" y="34" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="CHl-lV-M0T"/>
@@ -122,6 +122,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="page3_subway_icon2_small.png" width="38" height="38"/>
+        <image name="sub_2.gif" width="400" height="400"/>
     </resources>
 </document>

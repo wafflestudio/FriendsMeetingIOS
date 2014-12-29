@@ -45,9 +45,9 @@
     [button2 setBackgroundImage:[UIImage image1x1WithColor:normal] forState:UIControlStateNormal];
     [button3 setBackgroundImage:[UIImage image1x1WithColor:normal] forState:UIControlStateNormal];
     
-    [button1 addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [button2 addTarget:self action:@selector(shareLineButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [button3 addTarget:self action:@selector(shareKakaoButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button1 addTarget:self action:@selector(shareLineButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button2 addTarget:self action:@selector(shareKakaoButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [button3 addTarget:self action:@selector(saveScreenShotButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     button1.tag = 1;
     button2.tag = 2;
@@ -92,9 +92,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)shareLineButtonClicked:(UIButton *)sender{
-    
+    NSLog(@"share Line Button Clicked");
 }
 -(void)shareKakaoButtonClicked:(UIButton *)sender{
+    NSLog(@"share Kakao Button Clicked");
+}
+-(void)saveScreenShotButtonClicked:(UIButton *)sender{
+    NSLog(@"save Screenshot Button Clicked");
     
 }
 
