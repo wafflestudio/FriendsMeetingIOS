@@ -170,7 +170,7 @@
             NSArray * value = [selectedSubways objectForKey:key];
             
             for(int i=0; i<[[value objectAtIndex:2] integerValue]; i++){
-                NSString * subway_name = [value objectAtIndex:1];
+                NSString * subway_name = [self convertSubwayName:[value objectAtIndex:1]];
                 NSString * subway_line = [[results objectForKey:@"from"] objectAtIndex:cnt];
                 NSNumber * time = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:cnt+2];
                 [dic setObject:[NSArray arrayWithObjects:subway_name, subway_line, time, nil] forKey:subway_name];
