@@ -44,6 +44,9 @@
     [avgTimeLabel setText:[NSString stringWithFormat:@"평균소요시간 :   %d분", (int)(total_time/((double)cnt))]];
     
     recommendStation.text = [[[detailResults objectForKey:@"to"] objectAtIndex:0] stringByAppendingString:@"역"];
+    if([recommendStation.text isEqualToString:@"서울역역"]){
+        recommendStation.text = @"서울역";
+    }
     [recommendStation setFont:[UIFont fontWithName:@"BMJUAOTF" size:40]];
     
     [recommendStationLine setImage:[UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif", [[detailResults objectForKey:@"to"] objectAtIndex:1]]]];

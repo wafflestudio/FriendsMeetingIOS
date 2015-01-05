@@ -139,6 +139,9 @@
     NSString * subway_line = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:1];
     
     cell.subwayName.text = [NSString stringWithFormat:@"%@역", subway_name];
+    if([cell.subwayName.text isEqualToString:@"서울역역"]){
+        cell.subwayName.text = @"서울역";
+    }
     cell.desc.text = [descArray objectAtIndex:indexPath.row];
     cell.line.image = [UIImage imageNamed:[NSString stringWithFormat:@"sub_%@.gif",subway_line]];
     if(cell.line.image == nil) {
@@ -171,6 +174,9 @@
             
             for(int i=0; i<[[value objectAtIndex:2] integerValue]; i++){
                 NSString * subway_name = [self convertSubwayName:[value objectAtIndex:1]];
+                if([subway_name isEqualToString:@"서울역역"]){
+                    subway_name = @"서울역";
+                }
                 NSString * subway_line = [[results objectForKey:@"from"] objectAtIndex:cnt];
                 NSNumber * time = [[[results objectForKey:@"results"] objectAtIndex:indexPath.row] objectAtIndex:cnt+2];
                 [dic setObject:[NSArray arrayWithObjects:subway_name, subway_line, time, nil] forKey:subway_name];
