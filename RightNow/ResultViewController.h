@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
+@interface ResultViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>{
 
 }
 
@@ -24,6 +24,7 @@
 @property (nonatomic, strong) IBOutlet UIButton * button1;
 @property (nonatomic, strong) IBOutlet UIButton * button2;
 @property (nonatomic, strong) IBOutlet UIButton * button3;
+
 
 
 - (IBAction)backButtonClicked:(UIButton *)sender;

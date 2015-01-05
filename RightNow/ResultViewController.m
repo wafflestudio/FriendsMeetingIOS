@@ -25,6 +25,7 @@
 @synthesize button1, button2, button3;
 @synthesize resultTableView;
 @synthesize selectedSubways, status;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -107,11 +108,44 @@
 -(void)saveScreenShotButtonClicked:(UIButton *)sender{
     NSLog(@"save Screenshot Button Clicked");
     
+    sender.highlighted = NO;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"추천 장소를 앨범에 저장합니다" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"확인", nil];
+    [alert show];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UIImage *)takeScreenshot{
+    UIImage * image;
+    UIGraphicsBeginImageContext(CGSizeMake(320, 568));
+    {
+        CGRect savedFrame = self.view.frame;
+        
+        self.view.frame = CGRectMake(0, 0, 320, 568);
+        
+        [self.view.layer renderInContext: UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        self.view.frame = savedFrame;
+    }
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+#pragma  mark - UIAlertViewDelegate
+// UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex==0){
+        // Cancel save
+        return;
+    }else if(buttonIndex==1){
+        // Confirm save
+        UIImage* image = [self takeScreenshot];
+
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }else{
+        
+    }
 }
 
 #pragma mark - Table View
@@ -221,6 +255,13 @@
     name = [name substringToIndex:[name length]-1];
     
     return name;
+}
+
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
