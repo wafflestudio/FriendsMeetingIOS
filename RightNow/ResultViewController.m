@@ -7,6 +7,8 @@
 //
 
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+
 #import "ResultViewController.h"
 #import "ResultTableViewCell.h"
 #import "UIImage+IMAGECategories.h"
@@ -102,6 +104,28 @@
 }
 -(void)shareLineButtonClicked:(UIButton *)sender{
     NSLog(@"share Line Button Clicked");
+    
+    sender.highlighted = NO;
+    UIImage * image = [self takeScreenshot];
+    
+    UIPasteboard *pasteboard;
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
+        pasteboard = [UIPasteboard generalPasteboard];
+    } else {
+        pasteboard = [UIPasteboard pasteboardWithUniqueName];
+    }
+    
+    [pasteboard setData:UIImagePNGRepresentation(image)
+      forPasteboardType:@"public.png"];
+    
+    NSString *LINEUrlString = [NSString stringWithFormat:@"line://msg/image/%@", pasteboard.name];
+    
+    if ([[UIApplication sharedApplication]
+         canOpenURL:[NSURL URLWithString:LINEUrlString]]) {
+        [[UIApplication sharedApplication]
+         openURL:[NSURL URLWithString:LINEUrlString]];
+    }
 }
 -(void)shareKakaoButtonClicked:(UIButton *)sender{
     NSLog(@"share Kakao Button Clicked");
@@ -145,7 +169,10 @@
     
     KakaoTalkLinkObject *label
     = [KakaoTalkLinkObject createLabel:result];
-    
+    KakaoTalkLinkObject *image
+    = [KakaoTalkLinkObject createImage:@"https://developers.kakao.com/assets/img/link_sample.jpg"
+                                 width:138
+                                height:80];
     KakaoTalkLinkAction *androidAppAction
     = [KakaoTalkLinkAction createAppAction:KakaoTalkLinkActionOSPlatformAndroid
                                 devicetype:KakaoTalkLinkActionDeviceTypePhone
@@ -160,7 +187,7 @@
     = [KakaoTalkLinkObject createAppButton:@"앱 바로가기"
                                    actions:@[androidAppAction, iphoneAppAction]];
     
-    [KOAppCall openKakaoTalkAppLink:@[label, button]];
+    [KOAppCall openKakaoTalkAppLink:@[label, image,button]];
 }
 -(void)saveScreenShotButtonClicked:(UIButton *)sender{
     NSLog(@"save Screenshot Button Clicked");
@@ -173,6 +200,7 @@
 
 - (UIImage *)takeScreenshot{
     UIImage * image;
+    
     UIGraphicsBeginImageContext(CGSizeMake(320, 568));
     {
         CGRect savedFrame = self.view.frame;
