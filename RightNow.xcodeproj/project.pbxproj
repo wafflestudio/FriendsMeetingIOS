@@ -48,6 +48,7 @@
 		49641D701A514B4900F7676E /* sub_U1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 49641D5F1A514B4900F7676E /* sub_U1.gif */; };
 		49641D711A514B4900F7676E /* sub_Y1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 49641D601A514B4900F7676E /* sub_Y1.gif */; };
 		49681B561A5055A500217987 /* seoul.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 49681B551A5055A500217987 /* seoul.utf8 */; };
+		49697B961A5A47A800E26348 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49697B951A5A47A800E26348 /* Images.xcassets */; };
 		4978055A1A50378500AB8086 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805561A50378500AB8086 /* DetailTableViewCell.m */; };
 		4978055B1A50378500AB8086 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497805571A50378500AB8086 /* DetailTableViewCell.xib */; };
 		4978055C1A50378500AB8086 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805591A50378500AB8086 /* DetailViewController.m */; };
@@ -133,6 +134,7 @@
 		49641D5F1A514B4900F7676E /* sub_U1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sub_U1.gif; path = Resource/line/sub_U1.gif; sourceTree = "<group>"; };
 		49641D601A514B4900F7676E /* sub_Y1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sub_Y1.gif; path = Resource/line/sub_Y1.gif; sourceTree = "<group>"; };
 		49681B551A5055A500217987 /* seoul.utf8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = seoul.utf8; path = Resource/seoul.utf8; sourceTree = "<group>"; };
+		49697B951A5A47A800E26348 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		497805551A50378500AB8086 /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
 		497805561A50378500AB8086 /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
 		497805571A50378500AB8086 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -170,7 +172,6 @@
 		F5C34C3519CD3CB0004E00E9 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		F5C34C3619CD3CB0004E00E9 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		F5C34C3919CD3CB0004E00E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F5C34C3B19CD3CB0004E00E9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F5C34C3E19CD3CB0004E00E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F5C34C4419CD3CB0004E00E9 /* RightNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RightNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C34C4919CD3CB0004E00E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -365,8 +366,8 @@
 				497805561A50378500AB8086 /* DetailTableViewCell.m */,
 				497805571A50378500AB8086 /* DetailTableViewCell.xib */,
 				F5C34C3819CD3CB0004E00E9 /* Main.storyboard */,
-				F5C34C3B19CD3CB0004E00E9 /* Images.xcassets */,
 				F5C34C3D19CD3CB0004E00E9 /* LaunchScreen.xib */,
+				49697B951A5A47A800E26348 /* Images.xcassets */,
 				F5C34C2E19CD3CB0004E00E9 /* Supporting Files */,
 			);
 			path = RightNow;
@@ -494,6 +495,7 @@
 				499BDCAA1A4E610D00F0736B /* page1_bottom_btn2.png in Resources */,
 				495B5B081A4EFD65007FC981 /* page2_icon_arrow.png in Resources */,
 				49641D4B1A5147EA00F7676E /* page2_bottom_btn2.png in Resources */,
+				49697B961A5A47A800E26348 /* Images.xcassets in Resources */,
 				49641D671A514B4900F7676E /* sub_7.gif in Resources */,
 				1421666D1A5043F20043B7BF /* page3_listItem_bg.png in Resources */,
 				49641D661A514B4900F7676E /* sub_6.gif in Resources */,
