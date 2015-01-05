@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Wafflestudio. All rights reserved.
 //
 
+#import <KakaoOpenSDK/KakaoOpenSDK.h>
 #import "ResultViewController.h"
 #import "ResultTableViewCell.h"
 #import "UIImage+IMAGECategories.h"
@@ -104,6 +105,62 @@
 }
 -(void)shareKakaoButtonClicked:(UIButton *)sender{
     NSLog(@"share Kakao Button Clicked");
+    
+    sender.highlighted = NO;
+    UIImage * screenshot = [self takeScreenshot];
+    
+    NSArray * array = [results objectForKey:@"results"];
+    array = [[NSArray alloc] initWithObjects:[[array objectAtIndex:0] objectAtIndex:0],[[array objectAtIndex:1] objectAtIndex:0],[[array objectAtIndex:2] objectAtIndex:0],[[array objectAtIndex:3] objectAtIndex:0],[[array objectAtIndex:4] objectAtIndex:0], nil];
+    
+    NSMutableArray * subways = [[NSMutableArray alloc] init];
+    for(NSString * str in array){
+        NSString * name = [str stringByAppendingString:@"역"];
+        if([name isEqualToString:@"서울역역"]){
+            name = @"서울역";
+        }
+        [subways addObject:name];
+    }
+    
+    NSString * result = @"추천 장소 Best 5\n";
+    for(int i=1; i<=5; i++){
+        result = [result stringByAppendingString:[NSString stringWithFormat:@"%d. %@", i, [subways objectAtIndex:i-1]]];
+        switch(i) {
+            case 1:
+                result = [result stringByAppendingString:@" : 최대다수 최대행복\n"];
+                break;
+            case 2:
+                result = [result stringByAppendingString:@" : 합리적인 장소\n"];
+                break;
+            case 3:
+                result = [result stringByAppendingString:@" : 영화 보러가기\n"];
+                break;
+            case 4:
+                result = [result stringByAppendingString:@" : 맛집이 많은 곳\n"];
+                break;
+            case 5:
+                result = [result stringByAppendingString:@" : 카페가 많은 곳\n"];
+                break;
+        }
+    }
+    
+    KakaoTalkLinkObject *label
+    = [KakaoTalkLinkObject createLabel:result];
+    
+    KakaoTalkLinkAction *androidAppAction
+    = [KakaoTalkLinkAction createAppAction:KakaoTalkLinkActionOSPlatformAndroid
+                                devicetype:KakaoTalkLinkActionDeviceTypePhone
+                                 execparam:nil];
+    
+    KakaoTalkLinkAction *iphoneAppAction
+    = [KakaoTalkLinkAction createAppAction:KakaoTalkLinkActionOSPlatformIOS
+                                devicetype:KakaoTalkLinkActionDeviceTypePhone
+                                 execparam:nil];
+    
+    KakaoTalkLinkObject *button
+    = [KakaoTalkLinkObject createAppButton:@"앱 바로가기"
+                                   actions:@[androidAppAction, iphoneAppAction]];
+    
+    [KOAppCall openKakaoTalkAppLink:@[label, button]];
 }
 -(void)saveScreenShotButtonClicked:(UIButton *)sender{
     NSLog(@"save Screenshot Button Clicked");

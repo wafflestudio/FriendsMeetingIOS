@@ -49,6 +49,7 @@
 		49641D711A514B4900F7676E /* sub_Y1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 49641D601A514B4900F7676E /* sub_Y1.gif */; };
 		49681B561A5055A500217987 /* seoul.utf8 in Resources */ = {isa = PBXBuildFile; fileRef = 49681B551A5055A500217987 /* seoul.utf8 */; };
 		49697B961A5A47A800E26348 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49697B951A5A47A800E26348 /* Images.xcassets */; };
+		49697B981A5A530B00E26348 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49697B971A5A530B00E26348 /* KakaoOpenSDK.framework */; };
 		4978055A1A50378500AB8086 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805561A50378500AB8086 /* DetailTableViewCell.m */; };
 		4978055B1A50378500AB8086 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497805571A50378500AB8086 /* DetailTableViewCell.xib */; };
 		4978055C1A50378500AB8086 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497805591A50378500AB8086 /* DetailViewController.m */; };
@@ -134,6 +135,7 @@
 		49641D601A514B4900F7676E /* sub_Y1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sub_Y1.gif; path = Resource/line/sub_Y1.gif; sourceTree = "<group>"; };
 		49681B551A5055A500217987 /* seoul.utf8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = seoul.utf8; path = Resource/seoul.utf8; sourceTree = "<group>"; };
 		49697B951A5A47A800E26348 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		49697B971A5A530B00E26348 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = Kakao/KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		497805551A50378500AB8086 /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
 		497805561A50378500AB8086 /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
 		497805571A50378500AB8086 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49697B981A5A530B00E26348 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +268,14 @@
 			name = Line;
 			sourceTree = "<group>";
 		};
+		49697B991A5A530F00E26348 /* Kakao */ = {
+			isa = PBXGroup;
+			children = (
+				49697B971A5A530B00E26348 /* KakaoOpenSDK.framework */,
+			);
+			name = Kakao;
+			sourceTree = "<group>";
+		};
 		4996AFAD1A50F375006638BE /* Server */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +354,7 @@
 		F5C34C2D19CD3CB0004E00E9 /* RightNow */ = {
 			isa = PBXGroup;
 			children = (
+				49697B991A5A530F00E26348 /* Kakao */,
 				4996AFAD1A50F375006638BE /* Server */,
 				494EB4251A48002700535999 /* CustomCategories */,
 				49B2D4511A47FEE100ACF23F /* Resource */,
@@ -686,8 +698,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RightNow/Kakao",
+				);
 				INFOPLIST_FILE = RightNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -699,8 +716,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RightNow/Kakao",
+				);
 				INFOPLIST_FILE = RightNow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
